@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
       links={[
         {
           key: 'AIGC',
-          title: 'AIGC 智能数据分析平台',
+          title: 'GitHub',
           href: 'https://github.com/Wuhuyoung',
           blankTarget: true,
         },
