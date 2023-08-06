@@ -75,7 +75,7 @@ export default defineConfig({
    * @name layout 插件
    * @doc https://umijs.org/docs/max/layout-menu
    */
-  title: '智能 BI 平台',
+  title: 'DataMaster 智能数据分析平台',
   layout: {
     locale: false,
     ...defaultSettings,

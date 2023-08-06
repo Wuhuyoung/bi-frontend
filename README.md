@@ -1,6 +1,6 @@
-# 智能 BI 平台
+# DataMaster 智能数据分析平台
 
-This project is initialized with [智能 BI 平台](https://pro.ant.design). Follow is the quick guide for how to use.
+This project is initialized with [DataMaster 智能数据分析平台](https://pro.ant.design). Follow is the quick guide for how to use.
 
 ## Environment Prepare
 
@@ -18,7 +18,7 @@ yarn
 
 ## Provided Scripts
 
-智能 BI 平台 provides some useful script to help you quick start and build with web project, code style check and test.
+DataMaster 智能数据分析平台 provides some useful script to help you quick start and build with web project, code style check and test.
 
 Scripts provided in `package.json`. It's safe to modify or add additional script:
 

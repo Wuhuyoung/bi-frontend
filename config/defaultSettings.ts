@@ -9,13 +9,15 @@ const Settings: ProLayoutProps & {
 } = {
   navTheme: 'light',
   // 拂晓蓝
-  colorPrimary: '#1890ff',
+  colorPrimary: "#1677FF",
   layout: 'mix',
   contentWidth: 'Fluid',
   fixedHeader: false,
   fixSiderbar: true,
   colorWeak: false,
-  title: '智能 BI 平台',
+  splitMenus: false,
+  siderMenuType: "sub",
+  title: 'DataMaster',
   pwa: true,
   logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
   iconfontUrl: '',
@@ -26,3 +28,4 @@ const Settings: ProLayoutProps & {
 };
 
 export default Settings;
+

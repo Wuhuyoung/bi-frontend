@@ -108,8 +108,8 @@ const Login: React.FC = () => {
             maxWidth: '75vw',
           }}
           logo={<img alt="logo" src="/logo.svg" />}
-          title="智能 BI 平台"
-          subTitle="AIGC 智能数据分析平台"
+          title="DataMaster 智能数据分析平台"
+          subTitle="基于 AIGC 的数据可视化平台"
           initialValues={{
             autoLogin: true,
           }}
@@ -137,7 +137,7 @@ const Login: React.FC = () => {
                   size: 'large',
                   prefix: <UserOutlined />,
                 }}
-                placeholder="用户名: admin or user"
+                placeholder="请输入用户名"
                 rules={[
                   {
                     required: true,
@@ -156,7 +156,7 @@ const Login: React.FC = () => {
                   size: 'large',
                   prefix: <LockOutlined />,
                 }}
-                placeholder={'密码: 123456'}
+                placeholder={'请输入密码'}
                 rules={[
                   {
                     required: true,

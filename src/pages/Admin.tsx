@@ -28,7 +28,7 @@ const Admin: React.FC = () => {
           }}
         />
         <Typography.Title level={2} style={{ textAlign: 'center' }}>
-          <SmileTwoTone /> 智能 BI 平台 <HeartTwoTone twoToneColor="#eb2f96" /> You
+          <SmileTwoTone /> DataMaster 智能数据分析平台 <HeartTwoTone twoToneColor="#eb2f96" /> You
         </Typography.Title>
       </Card>
       <p style={{ textAlign: 'center', marginTop: 24 }}>

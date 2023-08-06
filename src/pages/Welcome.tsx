@@ -114,7 +114,7 @@ const Welcome: React.FC = () => {
               color: token.colorTextHeading,
             }}
           >
-            欢迎使用 智能 BI 平台
+            欢迎使用 DataMaster 智能数据分析平台
           </div>
           <p
             style={{
@@ -126,7 +126,7 @@ const Welcome: React.FC = () => {
               width: '65%',
             }}
           >
-            智能 BI 平台
+            DataMaster 智能数据分析平台
           </p>
           <div
             style={{
@@ -143,15 +143,15 @@ const Welcome: React.FC = () => {
             />
             <InfoCard
               index={2}
-              title="了解 智能 BI"
+              title="了解 DataMaster"
               href="https://ant.design"
-              desc="antd 是基于 智能 BI 设计体系的 React UI 组件库，主要用于研发企业级中后台产品。"
+              desc="antd 是基于 DataMaster 设计体系的 React UI 组件库，主要用于研发企业级中后台产品。"
             />
             <InfoCard
               index={3}
               title="了解 Pro Components"
               href="https://procomponents.ant.design"
-              desc="ProComponents 是一个基于 智能 BI 做了更高抽象的模板组件，以 一个组件就是一个页面为开发理念，为中后台开发带来更好的体验。"
+              desc="ProComponents 是一个基于 DataMaster 做了更高抽象的模板组件，以 一个组件就是一个页面为开发理念，为中后台开发带来更好的体验。"
             />
           </div>
         </div>
