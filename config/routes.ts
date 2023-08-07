@@ -2,6 +2,7 @@
   { path: '/user', layout: false, routes: [{ path: '/user/login', component: './User/Login' }, { path: '/user/register', component: './User/Register' }] },
   { path: '/welcome', name: '欢迎', icon: 'smile', component: './Welcome' },
   { path: '/add_chart', name: '智能分析', icon: 'BarChart', component: './AddChart' },
+  { path: '/my_chart', name: '我的图表', icon: 'PieChart', component: './MyChart' },
   {
     path: '/admin',
     icon: 'crown',

@@ -113,7 +113,7 @@ const AddChart: React.FC = () => {
                   rules={[{required: true, message: '请选择要分析的excel文件'}]}
                 >
                   <Upload name="file" action="/upload.do" listType="picture" maxCount={1}>
-                    <Button icon={<UploadOutlined/>}>上传 CSV 文件</Button>
+                    <Button icon={<UploadOutlined/>}>上传 CSV/XLSX/XLS 文件</Button>
                   </Upload>
                 </Form.Item>
 
@@ -173,7 +173,7 @@ const AddChart: React.FC = () => {
         </Col>
       </Row>
     </div>
-);
+  );
 };
 
 export default AddChart;
