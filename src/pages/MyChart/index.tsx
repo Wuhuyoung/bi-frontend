@@ -22,7 +22,7 @@ const MyChart: React.FC = () => {
   const initSearchParams = {
     pageSize: 4,
     current: 1,
-    sortField: 'updateTime',
+    sortField: 'createTime',
     sortOrder: 'desc',
   };
   // 获取登录用户
@@ -123,7 +123,7 @@ const MyChart: React.FC = () => {
             });
           }}
         />
-        <Button style={{marginTop: 10}} type={'primary'} loading={loading} onClick={() => loadData()}>
+        <Button style={{marginTop: 10}} type={'primary'} onClick={() => loadData()}>
           刷新
         </Button>
       </div>
@@ -173,7 +173,7 @@ const MyChart: React.FC = () => {
                       <>
                         <Result
                           extra={[
-                            <Button key="refresh" loading={loading} onClick={() => loadData()}>
+                            <Button key="refresh"  onClick={() => loadData()}>
                               刷新
                             </Button>,
                           ]}
@@ -187,7 +187,7 @@ const MyChart: React.FC = () => {
                       <>
                         <Result
                           extra={[
-                            <Button key="refresh" loading={loading} onClick={() => loadData()}>
+                            <Button key="refresh"  onClick={() => loadData()}>
                               刷新
                             </Button>,
                           ]}
@@ -220,7 +220,6 @@ const MyChart: React.FC = () => {
                           extra={[
                             <Button
                               key="retry"
-                              loading={loading}
                               onClick={() => retryOrRefresh(item)}
                             >
                               重试

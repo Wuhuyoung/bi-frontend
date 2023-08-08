@@ -19,7 +19,7 @@ const Settings: ProLayoutProps & {
   siderMenuType: "sub",
   title: 'DataMaster',
   pwa: true,
-  logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+  logo: 'https://typora-1314662469.cos.ap-shanghai.myqcloud.com/img/202308061855569.svg',
   iconfontUrl: '',
   token: {
     // 参见ts声明，demo 见文档，通过token 修改样式

@@ -1,4 +1,4 @@
-import {genChartByAiAsyncUsingPOST} from '@/services/bi/chartController';
+import {genChartByAiAsyncMQUsingPOST} from '@/services/bi/chartController';
 import { UploadOutlined } from '@ant-design/icons';
 
 import { Button, Card, Form, Input, message, Select, Space, theme, Upload } from 'antd';
@@ -32,7 +32,8 @@ const AddChartAsync: React.FC = () => {
       file: undefined,
     };
     try {
-      const res = await genChartByAiAsyncUsingPOST(params, {}, values.file.file.originFileObj);
+      // const res = await genChartByAiAsyncUsingPOST(params, {}, values.file.file.originFileObj);
+      const res = await genChartByAiAsyncMQUsingPOST(params, {}, values.file.file.originFileObj);
       if (!res?.data) {
         message.error('提交任务失败，请稍后重试');
         setSubmitting(false);
