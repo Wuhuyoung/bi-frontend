@@ -7,6 +7,7 @@ import { history, Link } from '@umijs/max';
 import { AvatarDropdown, AvatarName } from './components/RightContent/AvatarDropdown';
 import { errorConfig } from './requestConfig';
 import {getLoginUserUsingGET} from "@/services/bi/userController";
+import {sleep} from "@antfu/utils";
 const isDev = process.env.NODE_ENV === 'development';
 const loginPath = '/user/login';
 

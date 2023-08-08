@@ -5,6 +5,10 @@ import {Button, Card, Col, Form, Input, message, Row, Select, Space, theme, Uplo
 import ReactECharts from 'echarts-for-react';
 import React, {useState} from 'react';
 
+/**
+ * 添加图表页面（同步）
+ * @constructor
+ */
 const AddChart: React.FC = () => {
   const {useToken} = theme;
   const {token} = useToken();
@@ -34,6 +38,7 @@ const AddChart: React.FC = () => {
       const res = await genChartByAiUsingPOST(params, {}, values.file.file.originFileObj);
       if (!res?.data) {
         message.error('分析失败');
+        setSubmitting(false);
       } else {
         const chartOption = JSON.parse(res.data.genChart ?? '');
         if (!chartOption) {
