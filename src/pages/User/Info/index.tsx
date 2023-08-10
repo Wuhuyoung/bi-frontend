@@ -4,8 +4,8 @@ const { Paragraph } = Typography;
 
 import { useModel } from '@@/exports';
 import { Card, theme } from 'antd';
-import React, { useEffect } from 'react';
-import {updateMyUserUsingPOST} from "@/services/bi/userController";
+import React, {useEffect, useState} from 'react';
+import {getUserLeftCountUsingGET, updateMyUserUsingPOST} from "@/services/bi/userController";
 
 /**
  * 我的图表页面
@@ -19,7 +19,21 @@ const Info: React.FC = () => {
   const { initialState } = useModel('@@initialState');
   const { currentUser } = initialState ?? {};
 
+  const [count, setCount] = useState<number>(0);
 
+  const getUserCount = async () => {
+    const res = await getUserLeftCountUsingGET();
+    if (res.code === 0) {
+      setCount(res?.data ?? 0)
+    } else {
+      message.error('未查询到该用户的调用次数');
+    }
+  }
+
+  // 组件初始化时查询用户剩余调用次数
+  useEffect(() => {
+    getUserCount();
+  });
 
   // 组件初始化和searchParams修改时(分页)查询图表
   useEffect(() => {});
@@ -93,8 +107,8 @@ const Info: React.FC = () => {
             title={'我的特权'}
           >
             <p>角色：{currentUser?.userRole === 'admin' ? '管理员' : '普通用户'}</p>
-            <p>剩余 AI 调用次数：{currentUser?.leftCount}</p>
-            <Tooltip placement="top" title={'普通用户每日可领取10次，上限30次\n会员每日可领取100次，上限500次'}>
+            <p>剩余 AI 调用次数：{count}</p>
+            <Tooltip placement="top" title={'普通用户每日可领取10次，上限50次\n会员每日可领取100次，上限500次'}>
             <Button onClick={handleGainCount}>每日签到</Button>
             </Tooltip>
             <Button type={"primary"} style={{marginLeft: 10}} onClick={() => message.info('该功能暂未实现，敬请期待')}>充值</Button>

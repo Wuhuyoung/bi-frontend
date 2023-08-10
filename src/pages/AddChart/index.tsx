@@ -36,8 +36,9 @@ const AddChart: React.FC = () => {
     };
     try {
       const res = await genChartByAiUsingPOST(params, {}, values.file.file.originFileObj);
+      // console.log(res);
       if (!res?.data) {
-        message.error('分析失败');
+        message.error(res.message ?? '分析失败');
         setSubmitting(false);
       } else {
         const chartOption = JSON.parse(res.data.genChart ?? '');
@@ -46,6 +47,11 @@ const AddChart: React.FC = () => {
         } else {
           const chartOption = JSON.parse(res.data.genChart ?? '{}');
           chartOption.title = undefined;
+          chartOption.toolbox = {
+            feature: {
+              saveAsImage: {}
+            }
+          };
           setChart(res.data);
           setOption(chartOption);
           message.success('分析成功');
@@ -120,7 +126,7 @@ const AddChart: React.FC = () => {
                   rules={[{required: true, message: '请选择要分析的excel文件'}]}
                 >
                   <Upload name="file" action="/upload.do" listType="picture" maxCount={1}>
-                    <Button icon={<UploadOutlined/>}>上传 CSV/XLSX/XLS 文件</Button>
+                    <Button icon={<UploadOutlined/>}>上传 XLS/XLSX 文件</Button>
                   </Upload>
                 </Form.Item>
 

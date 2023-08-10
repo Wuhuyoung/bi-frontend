@@ -28,6 +28,12 @@ declare namespace API {
     message?: string;
   };
 
+  type BaseResponseInt_ = {
+    code?: number;
+    data?: number;
+    message?: string;
+  };
+
   type BaseResponseLoginUserVO_ = {
     code?: number;
     data?: LoginUserVO;
@@ -224,6 +230,7 @@ declare namespace API {
     id?: number;
     isDelete?: number;
     leftCount?: number;
+    signInTime?: string;
     updateTime?: string;
     userAccount?: string;
     userAvatar?: string;

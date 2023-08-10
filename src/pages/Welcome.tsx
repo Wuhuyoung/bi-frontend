@@ -1,7 +1,11 @@
 import { PageContainer } from '@ant-design/pro-components';
 import { useModel } from '@umijs/max';
-import { Card, theme } from 'antd';
+import {Card, theme, Typography} from 'antd';
 import React from 'react';
+import ReactECharts from "echarts-for-react";
+
+
+const { Link } = Typography;
 
 /**
  * 每个单独的卡片，为了复用样式抽成了组件
@@ -11,9 +15,9 @@ import React from 'react';
 const InfoCard: React.FC<{
   title: string;
   index: number;
-  desc: string;
   href: string;
-}> = ({ title, href, index, desc }) => {
+  optionItem: object;
+}> = ({ title, href, index, optionItem }) => {
   const { useToken } = theme;
 
   const { token } = useToken();
@@ -67,18 +71,14 @@ const InfoCard: React.FC<{
       </div>
       <div
         style={{
-          fontSize: '14px',
-          color: token.colorTextSecondary,
-          textAlign: 'justify',
-          lineHeight: '22px',
           marginBottom: 8,
         }}
       >
-        {desc}
+        <ReactECharts option= {optionItem}/>
       </div>
-      <a href={href} target="_blank" rel="noreferrer">
-        了解更多 {'>'}
-      </a>
+      <Link href={href} rel="noreferrer">
+        立即体验 {'>'}
+      </Link>
     </div>
   );
 };
@@ -114,7 +114,7 @@ const Welcome: React.FC = () => {
               color: token.colorTextHeading,
             }}
           >
-            欢迎使用 DataMaster 智能数据分析平台
+            DataMaster 智能数据分析平台
           </div>
           <p
             style={{
@@ -126,7 +126,8 @@ const Welcome: React.FC = () => {
               width: '65%',
             }}
           >
-            DataMaster 智能数据分析平台
+            基于 AIGC 的智能数据分析平台。
+            只需要导入原始数据集、并输入分析需求，就能自动生成可视化图表及分析结论，实现数据分析的降本增效。
           </p>
           <div
             style={{
@@ -137,21 +138,92 @@ const Welcome: React.FC = () => {
           >
             <InfoCard
               index={1}
-              href="https://umijs.org/docs/introduce/introduce"
-              title="了解 umi"
-              desc="umi 是一个可扩展的企业级前端应用框架,umi 以路由为基础的，同时支持配置式路由和约定式路由，保证路由的功能完备，并以此进行功能扩展。"
+              title="可同步生成或异步生成"
+              href="/add_chart"
+              optionItem={{
+                xAxis: {
+                  type: 'category',
+                  data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                },
+                yAxis: {
+                  type: 'value'
+                },
+                toolbox: {
+                  feature: {
+                    saveAsImage: {}
+                  }
+                },
+                series: [
+                  {
+                    data: [120, 200, 150, 80, 70, 110, 130],
+                    type: 'bar'
+                  }
+                ]
+              }}
             />
             <InfoCard
               index={2}
-              title="了解 DataMaster"
-              href="https://ant.design"
-              desc="antd 是基于 DataMaster 设计体系的 React UI 组件库，主要用于研发企业级中后台产品。"
-            />
-            <InfoCard
-              index={3}
-              title="了解 Pro Components"
-              href="https://procomponents.ant.design"
-              desc="ProComponents 是一个基于 DataMaster 做了更高抽象的模板组件，以 一个组件就是一个页面为开发理念，为中后台开发带来更好的体验。"
+              href="/add_chart_async_pool"
+              title="支持多种图表"
+              optionItem={{
+                tooltip: {
+                  trigger: 'axis'
+                },
+                legend: {
+                  data: ['Email', 'Union Ads', 'Video Ads', 'Direct', 'Search Engine']
+                },
+                grid: {
+                  left: '3%',
+                  right: '4%',
+                  bottom: '3%',
+                  containLabel: true
+                },
+                toolbox: {
+                  feature: {
+                    saveAsImage: {}
+                  }
+                },
+                xAxis: {
+                  type: 'category',
+                  boundaryGap: false,
+                  data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                },
+                yAxis: {
+                  type: 'value'
+                },
+                series: [
+                  {
+                    name: 'Email',
+                    type: 'line',
+                    stack: 'Total',
+                    data: [120, 132, 101, 134, 90, 230, 210]
+                  },
+                  {
+                    name: 'Union Ads',
+                    type: 'line',
+                    stack: 'Total',
+                    data: [220, 182, 191, 234, 290, 330, 310]
+                  },
+                  {
+                    name: 'Video Ads',
+                    type: 'line',
+                    stack: 'Total',
+                    data: [150, 232, 201, 154, 190, 330, 410]
+                  },
+                  {
+                    name: 'Direct',
+                    type: 'line',
+                    stack: 'Total',
+                    data: [320, 332, 301, 334, 390, 330, 320]
+                  },
+                  {
+                    name: 'Search Engine',
+                    type: 'line',
+                    stack: 'Total',
+                    data: [820, 932, 901, 934, 1290, 1330, 1320]
+                  }
+                ]
+              }}
             />
           </div>
         </div>

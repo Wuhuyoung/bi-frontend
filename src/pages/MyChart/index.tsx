@@ -45,9 +45,18 @@ const MyChart: React.FC = () => {
         if (res.data.records) {
           res.data.records.forEach((data) => {
             if (data.status === 'succeed') {
-              const chartOption = JSON.parse(data.genChart ?? '{}');
-              chartOption.title = undefined;
-              data.genChart = JSON.stringify(chartOption);
+              try {
+                const chartOption = JSON.parse(data.genChart ?? '{}');
+                chartOption.title = undefined;
+                chartOption.toolbox = {
+                  feature: {
+                    saveAsImage: {}
+                  }
+                };
+                data.genChart = JSON.stringify(chartOption);
+              } catch (e) {
+                console.log(e)
+              }
             }
           });
         }
@@ -68,8 +77,9 @@ const MyChart: React.FC = () => {
       const id: API.retryGenChartByAiAsyncUsingPOSTParams = { chartId: item.id };
       try {
         const res = await retryGenChartByAiAsyncUsingPOST(id);
+        // console.log(res)
         if (!res?.data) {
-          message.error('提交任务失败，请稍后重试');
+          message.error(res.message ?? '分析失败');
         } else {
           message.success('重试成功');
         }

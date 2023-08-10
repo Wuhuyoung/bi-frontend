@@ -3,7 +3,7 @@
   { path: '/welcome', name: '欢迎', icon: 'smile', component: './Welcome' },
   { path: '/add_chart', name: '智能分析', icon: 'BarChart', component: './AddChart' },
   { path: '/add_chart_async_pool', name: '智能分析（异步）', icon: 'BarChart', component: './AddChartAsyncPool' },
-  { path: '/add_chart_async_mq', name: '智能分析（异步 MQ）', icon: 'BarChart', component: './AddChartAsync' },
+  { path: '/add_chart_async_mq', name: '智能分析（异步）', icon: 'BarChart', component: './AddChartAsync' },
   { path: '/my_chart', name: '我的图表', icon: 'PieChart', component: './MyChart' },
   { path: '/user/info', name: '用户信息', icon: 'crown', component: './User/Info' },
   {

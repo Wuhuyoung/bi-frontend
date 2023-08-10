@@ -14,6 +14,14 @@ export async function addUserUsingPOST(body: API.UserAddRequest, options?: { [ke
   });
 }
 
+/** signIn GET /api/user/add/count */
+export async function signInUsingGET(options?: { [key: string]: any }) {
+  return request<API.BaseResponseInt_>('/api/user/add/count', {
+    method: 'GET',
+    ...(options || {}),
+  });
+}
+
 /** deleteUser POST /api/user/delete */
 export async function deleteUserUsingPOST(
   body: API.DeleteRequest,
@@ -40,6 +48,14 @@ export async function getUserByIdUsingGET(
     params: {
       ...params,
     },
+    ...(options || {}),
+  });
+}
+
+/** getUserLeftCount GET /api/user/get/count */
+export async function getUserLeftCountUsingGET(options?: { [key: string]: any }) {
+  return request<API.BaseResponseInt_>('/api/user/get/count', {
+    method: 'GET',
     ...(options || {}),
   });
 }
