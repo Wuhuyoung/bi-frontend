@@ -5,7 +5,7 @@ const { Paragraph } = Typography;
 import { useModel } from '@@/exports';
 import { Card, theme } from 'antd';
 import React, {useEffect, useState} from 'react';
-import {getUserLeftCountUsingGET, updateMyUserUsingPOST} from "@/services/bi/userController";
+import {getUserLeftCountUsingGET, signInUsingGET, updateMyUserUsingPOST} from "@/services/bi/userController";
 
 /**
  * 我的图表页面
@@ -48,8 +48,17 @@ const Info: React.FC = () => {
     }
   };
 
-  const handleGainCount = () => {
-    message.info('该功能暂未实现，敬请期待')
+  const handleGainCount = async () => {
+    const res = await signInUsingGET();
+    if (res.code === 0) {
+      const res1 = await getUserLeftCountUsingGET();
+      message.success(res.message ?? '签到成功')
+      if (res1.code === 0) {
+        setCount(res1?.data ?? 0)
+      }
+    } else {
+      message.error(res.message ?? '签到失败');
+    }
   }
 
   type LoginUser = {
