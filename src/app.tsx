@@ -7,7 +7,6 @@ import { history, Link } from '@umijs/max';
 import { AvatarDropdown, AvatarName } from './components/RightContent/AvatarDropdown';
 import { errorConfig } from './requestConfig';
 import {getLoginUserUsingGET} from "@/services/bi/userController";
-import {sleep} from "@antfu/utils";
 const isDev = process.env.NODE_ENV === 'development';
 const loginPath = '/user/login';
 
@@ -121,7 +120,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
  * @doc https://umijs.org/docs/max/request#配置
  */
 export const request = {
-  baseURL: 'http://localhost:8108',
+  baseURL:  process.env.NODE_ENV === 'production' ? 'http://bi-backend.wuhuyoung.top' : 'http://localhost:8108',
   withCredentials: true,  // 表示允许使用cookie，这样用户每次请求才会携带cookie信息，否则无法记录登录状态
   ...errorConfig,
 };

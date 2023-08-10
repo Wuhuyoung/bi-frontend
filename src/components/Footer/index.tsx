@@ -1,14 +1,9 @@
 import { GithubOutlined } from '@ant-design/icons';
 import { DefaultFooter } from '@ant-design/pro-components';
-import { useIntl } from '@umijs/max';
 import React from 'react';
 
 const Footer: React.FC = () => {
-  const intl = useIntl();
-  const defaultMessage = intl.formatMessage({
-    id: 'app.copyright.produced',
-    defaultMessage: 'Wuhuyoung 的 AI 技术体验平台',
-  });
+  const defaultMessage = 'Wuhuyoung 的 AI 技术体验平台';
 
   const currentYear = new Date().getFullYear();
 
@@ -32,9 +27,9 @@ const Footer: React.FC = () => {
           blankTarget: true,
         },
         {
-          key: 'Wuhuyoung',
-          title: 'Wuhuyoung',
-          href: 'https://github.com/Wuhuyoung',
+          key: '工信部',
+          title: '沪ICP备2023020290号',
+          href: 'https://beian.miit.gov.cn',
           blankTarget: true,
         },
       ]}

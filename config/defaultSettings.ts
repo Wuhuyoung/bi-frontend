@@ -7,15 +7,15 @@ const Settings: ProLayoutProps & {
   pwa?: boolean;
   logo?: string;
 } = {
-  navTheme: 'light',
+  "navTheme": "light",
+  "layout": "side",
+  "contentWidth": "Fluid",
+  "fixedHeader": false,
+  "fixSiderbar": true,
+  "colorPrimary": "#1677FF",
+  "splitMenus": false,
   // 拂晓蓝
-  colorPrimary: "#1677FF",
-  layout: 'mix',
-  contentWidth: 'Fluid',
-  fixedHeader: false,
-  fixSiderbar: true,
   colorWeak: false,
-  splitMenus: false,
   siderMenuType: "sub",
   title: 'DataMaster',
   pwa: true,

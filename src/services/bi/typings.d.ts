@@ -162,6 +162,7 @@ declare namespace API {
   type LoginUserVO = {
     createTime?: string;
     id?: number;
+    leftCount?: number;
     updateTime?: string;
     userAvatar?: string;
     userName?: string;
@@ -222,6 +223,7 @@ declare namespace API {
     createTime?: string;
     id?: number;
     isDelete?: number;
+    leftCount?: number;
     updateTime?: string;
     userAccount?: string;
     userAvatar?: string;
@@ -275,6 +277,7 @@ declare namespace API {
   type UserVO = {
     createTime?: string;
     id?: number;
+    leftCount?: number;
     userAvatar?: string;
     userName?: string;
     userProfile?: string;

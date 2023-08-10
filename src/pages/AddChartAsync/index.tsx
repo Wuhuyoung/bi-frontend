@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import {useForm} from "antd/es/form/Form";
 
 /**
- * 添加图表页面（异步）
+ * 添加图表页面（异步）消息队列
  * @constructor
  */
 const AddChartAsync: React.FC = () => {

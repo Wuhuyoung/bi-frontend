@@ -1,4 +1,4 @@
-import {genChartByAiAsyncMQUsingPOST} from '@/services/bi/chartController';
+import {genChartByAiAsyncMQUsingPOST, genChartByAiAsyncUsingPOST} from '@/services/bi/chartController';
 import { UploadOutlined } from '@ant-design/icons';
 
 import { Button, Card, Form, Input, message, Select, Space, theme, Upload } from 'antd';
@@ -6,10 +6,10 @@ import React, { useState } from 'react';
 import {useForm} from "antd/es/form/Form";
 
 /**
- * 添加图表页面（异步）
+ * 添加图表页面（异步）线程池异步处理
  * @constructor
  */
-const AddChartAsync: React.FC = () => {
+const AddChartAsyncPool: React.FC = () => {
   const { useToken } = theme;
   const { token } = useToken();
 
@@ -33,7 +33,7 @@ const AddChartAsync: React.FC = () => {
     };
     try {
       // const res = await genChartByAiAsyncUsingPOST(params, {}, values.file.file.originFileObj);
-      const res = await genChartByAiAsyncMQUsingPOST(params, {}, values.file.file.originFileObj);
+      const res = await genChartByAiAsyncUsingPOST(params, {}, values.file.file.originFileObj);
       if (!res?.data) {
         message.error('提交任务失败，请稍后重试');
         setSubmitting(false);
@@ -136,4 +136,4 @@ const AddChartAsync: React.FC = () => {
   );
 };
 
-export default AddChartAsync;
+export default AddChartAsyncPool;
