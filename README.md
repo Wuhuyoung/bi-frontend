@@ -10,6 +10,14 @@
 
 
 
+## 架构图
+
+![image-20230812151315017](https://typora-1314662469.cos.ap-shanghai.myqcloud.com/img/202308121513880.png)
+
+
+
+## 界面
+
 首页：
 
 ![image-20230812134416204](https://typora-1314662469.cos.ap-shanghai.myqcloud.com/img/202308121411243.png)
